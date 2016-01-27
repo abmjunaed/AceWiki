@@ -28,7 +28,7 @@
   -->
   <context-param>
     <param-name>apetype</param-name>
-    <param-value>local</param-value>
+    <param-value>webservice</param-value>
   </context-param>
 
   <!--
@@ -71,7 +71,7 @@
   -->
   <context-param>
     <param-name>apewebservice</param-name>
-    <param-value>http://localhost:8000</param-value>
+    <param-value>http://localhost:8001</param-value>
   </context-param>
 
   <!--

@@ -1,0 +1,21 @@
+Thre are several ways to run.
+a) using cmd prompt, no debug possible.
+now open a cmd promt and write this command:
+
+java -Djava.library.path="C:\Program Files\swipl\lib" -jar jetty-runner.jar --port 9077 --jar  "C:\Program Files\swipl\lib\jpl.jar" acewiki.war
+
+b)Debug possible:Jetty runner from eclipse:
+https://marketplace.eclipse.org/content/run-jetty-run
+Go above link. Drag and drop the install button in your eclipse window, it will start installing.
+Right click on the project->debug as->debug configuration.
+Select Jetty webapp->right clink->new
+Default config is good enough i.e. Port: 8080,Context:/acewiki,Webapp dir: war
+Now I can run or debug from ecpilse as usual.
+Run the app from eclipse, acces here:
+http://localhost:8080/acewiki/
+http://localhost:8080/acewiki/acewiki2/
+Steps with picture: http://eclipse-jetty.github.io/getting_started.html
+More detail https://github.com/xzer/run-jetty-run/wiki/GettingStarted
+
+c)Run with tomcat:
+https://github.com/AceWiki/AceWiki/wiki/Installation-with-Tomcat-and-Windows
