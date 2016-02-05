@@ -314,7 +314,7 @@ public class PreditorWindow extends nextapp.echo.app.WindowPane implements Actio
 		update();
 	}
 	
-	private void textElementSelected(TextElement te) {
+	public void textElementSelected(TextElement te) {
 		textContainer.addElement(te);
 		parser.addToken(te.getOriginalText());
 		
@@ -499,7 +499,7 @@ public class PreditorWindow extends nextapp.echo.app.WindowPane implements Actio
 		actionListeners.clear();
 	}
 	
-	private void notifyActionListeners(ActionEvent event) {
+	public void notifyActionListeners(ActionEvent event) {
 		for (ActionListener al : actionListeners) {
 			al.actionPerformed(event);
 		}

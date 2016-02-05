@@ -74,12 +74,15 @@ import ch.uzh.ifi.attempto.acewiki.gui.LexiconEditorPage;
 import ch.uzh.ifi.attempto.acewiki.gui.ListItem;
 import ch.uzh.ifi.attempto.acewiki.gui.LoginWindow;
 import ch.uzh.ifi.attempto.acewiki.gui.SearchPage;
+import ch.uzh.ifi.attempto.acewiki.gui.SentenceEditorHandler;
 import ch.uzh.ifi.attempto.acewiki.gui.SentencePage;
 import ch.uzh.ifi.attempto.acewiki.gui.StartPage;
 import ch.uzh.ifi.attempto.acewiki.gui.Title;
 import ch.uzh.ifi.attempto.acewiki.gui.UserWindow;
 import ch.uzh.ifi.attempto.acewiki.gui.WikiPage;
 import ch.uzh.ifi.attempto.base.LoggerContext;
+import ch.uzh.ifi.attempto.base.TextElement;
+import ch.uzh.ifi.attempto.base.TextOperator;
 import ch.uzh.ifi.attempto.echocomp.EchoThread;
 import ch.uzh.ifi.attempto.echocomp.HSpace;
 import ch.uzh.ifi.attempto.echocomp.Label;
@@ -92,6 +95,7 @@ import ch.uzh.ifi.attempto.echocomp.Style;
 import ch.uzh.ifi.attempto.echocomp.TextAreaWindow;
 import ch.uzh.ifi.attempto.echocomp.TextField;
 import ch.uzh.ifi.attempto.echocomp.VSpace;
+import ch.uzh.ifi.attempto.preditor.MenuEntry;
 import ch.uzh.ifi.attempto.preditor.PreditorWindow;
 import ch.uzh.ifi.attempto.preditor.WordEditorWindow;
 import echopoint.externalevent.ExternalEvent;
@@ -109,6 +113,10 @@ import echopoint.externalevent.ExternalEventMonitor;
  * @author Kaarel Kaljurand
  */
 public class Wiki implements UserProvider, ActionListener, ExternalEventListener {
+	
+	private static ArticlePage articlePage;
+	//for importer
+	PreditorWindow preEditorWindow ;//test:automatically sth in the window
 
 	private static final long serialVersionUID = 2777443689044226043L;
 
@@ -137,7 +145,7 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 	private Label userLabel;
 
 	private SmallButton homeButton, indexButton, searchButton2, aboutButton, randomButton,
-	newButton, exportButton, rebuildGrammarButton;
+	newButton, exportButton, importButton, rebuildGrammarButton;
 
 	private SmallButton grammarButton;
 	private SmallButton lexiconEditorButton;
@@ -216,6 +224,9 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 
 		startPage = new StartPage(this);
 
+		//for import
+		articlePage=startPage;
+		
 		// auto login
 		if (config.isLoginEnabled()) {
 			String userName = getCookie("lastusername");
@@ -418,6 +429,9 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 		sideCol.add(label);
 		newButton = new SmallButton(getGUIText("acewiki_action_new"), this, 12);
 		exportButton = new SmallButton(getGUIText("acewiki_action_export"), this, 12);
+		importButton = new SmallButton(getGUIText("acewiki_action_import"), this, 12);
+			
+		
 		if (!config.isReadOnly() && getEngine().getLexicalTypes().length > 0) {
 			sideCol.add(new ListItem(newButton));
 		}
@@ -427,6 +441,7 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 			sideCol.add(new ListItem(rebuildGrammarButton));
 		}
 		sideCol.add(new ListItem(exportButton));
+		sideCol.add(new ListItem(importButton));
 
 		languageButtons = new ArrayList<SmallButton>();
 
@@ -883,7 +898,42 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 			}
 		} else if (src == exportButton) {
 			showWindow(new ExportWindow(this));
-		} else if (src == rebuildGrammarButton) {
+		} else if (src == importButton) {
+			preEditorWindow = SentenceEditorHandler.generateCreationWindow(null, articlePage);
+			this.showWindow(preEditorWindow);
+			TextElement te;
+			TextOperator to = this.getLanguageHandler().getTextOperator();
+			
+			//sentence
+//			te = new TextElement("Every");
+//			preEditorWindow.textElementSelected(te);
+//			te = to.createTextElement("CCCA");
+//			preEditorWindow.textElementSelected(te);
+//			te = to.createTextElement("is");
+//			preEditorWindow.textElementSelected(te);
+//			te = to.createTextElement("a");
+//			preEditorWindow.textElementSelected(te);
+//			te = to.createTextElement("Monument");
+//			preEditorWindow.textElementSelected(te);
+//			//add sentence
+//			preEditorWindow.notifyActionListeners(new ActionEvent(preEditorWindow, "OK"));
+			
+			
+			te = to.createTextElement("No");
+			preEditorWindow.textElementSelected(te);
+			te = to.createTextElement("DoorA");
+			preEditorWindow.textElementSelected(te);
+			te = to.createTextElement("is");
+			preEditorWindow.textElementSelected(te);
+			te = to.createTextElement("a");
+			preEditorWindow.textElementSelected(te);
+			te = to.createTextElement("DoorC");
+			preEditorWindow.textElementSelected(te);
+			//add sentence
+			preEditorWindow.notifyActionListeners(new ActionEvent(preEditorWindow, "OK"));
+			
+		} 
+		else if (src == rebuildGrammarButton) {
 			if (!isEditable()) {
 				showLoginWindow();
 			} else {
