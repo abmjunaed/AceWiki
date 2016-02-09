@@ -101,6 +101,7 @@ import ch.uzh.ifi.attempto.preditor.WordEditorWindow;
 import echopoint.externalevent.ExternalEvent;
 import echopoint.externalevent.ExternalEventListener;
 import echopoint.externalevent.ExternalEventMonitor;
+import importer.ImporterController;
 
 // TODO Move this class to gui package?
 
@@ -114,9 +115,9 @@ import echopoint.externalevent.ExternalEventMonitor;
  */
 public class Wiki implements UserProvider, ActionListener, ExternalEventListener {
 	
-	private static ArticlePage articlePage;
-	//for importer
-	PreditorWindow preEditorWindow ;//test:automatically sth in the window
+	public static ArticlePage articlePage;
+	
+	
 
 	private static final long serialVersionUID = 2777443689044226043L;
 
@@ -899,38 +900,8 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 		} else if (src == exportButton) {
 			showWindow(new ExportWindow(this));
 		} else if (src == importButton) {
-			preEditorWindow = SentenceEditorHandler.generateCreationWindow(null, articlePage);
-			this.showWindow(preEditorWindow);
-			TextElement te;
-			TextOperator to = this.getLanguageHandler().getTextOperator();
-			
-			//sentence
-//			te = new TextElement("Every");
-//			preEditorWindow.textElementSelected(te);
-//			te = to.createTextElement("CCCA");
-//			preEditorWindow.textElementSelected(te);
-//			te = to.createTextElement("is");
-//			preEditorWindow.textElementSelected(te);
-//			te = to.createTextElement("a");
-//			preEditorWindow.textElementSelected(te);
-//			te = to.createTextElement("Monument");
-//			preEditorWindow.textElementSelected(te);
-//			//add sentence
-//			preEditorWindow.notifyActionListeners(new ActionEvent(preEditorWindow, "OK"));
-			
-			
-			te = to.createTextElement("No");
-			preEditorWindow.textElementSelected(te);
-			te = to.createTextElement("DoorA");
-			preEditorWindow.textElementSelected(te);
-			te = to.createTextElement("is");
-			preEditorWindow.textElementSelected(te);
-			te = to.createTextElement("a");
-			preEditorWindow.textElementSelected(te);
-			te = to.createTextElement("DoorC");
-			preEditorWindow.textElementSelected(te);
-			//add sentence
-			preEditorWindow.notifyActionListeners(new ActionEvent(preEditorWindow, "OK"));
+			ImporterController importController = new ImporterController(this);
+			importController.importButtonClicked();
 			
 		} 
 		else if (src == rebuildGrammarButton) {
@@ -1206,7 +1177,7 @@ public class Wiki implements UserProvider, ActionListener, ExternalEventListener
 				null,
 				null
 				);
-		waitWindow.setClosable(false);
+//		waitWindow.setClosable(false);
 		showWindow(waitWindow);
 
 		strongTasks.add(task);

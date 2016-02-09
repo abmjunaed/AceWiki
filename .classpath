@@ -30,5 +30,6 @@
 	<classpathentry kind="lib" path="lib/guava-11.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/gf-java-0.8.1.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
