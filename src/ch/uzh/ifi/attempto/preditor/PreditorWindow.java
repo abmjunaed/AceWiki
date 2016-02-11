@@ -72,7 +72,7 @@ public class PreditorWindow extends nextapp.echo.app.WindowPane implements Actio
 	private final TextContainer textContainer = new TextContainer();
 	private MenuCreator menuCreator;
 	private TextOperator textOperator;
-	private PredictiveParser parser;
+	public PredictiveParser parser;
 	private List<ActionListener> actionListeners = new ArrayList<ActionListener>();
 	private LoggerContext loggerContext;
 	private final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());

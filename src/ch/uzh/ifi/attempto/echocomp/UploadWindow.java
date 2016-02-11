@@ -42,13 +42,15 @@ import nextapp.echo.filetransfer.model.Upload;
 public class UploadWindow extends WindowPane implements ActionListener, UploadListener {
 
 	private static final long serialVersionUID = -8594954833738936914L;
-
+	
+	public static final String uploadCompleted = "uploadCompleted";
 	private ActionListener actionListener;
 	private String fileContent;
 	private Label fileLabel;
 	private GeneralButton openButton;
 	private long maxFileSize = 0;
 	private String actionCommand = "Upload";
+	private boolean showOpenButton = true;
 
 	/**
 	 * Creates a new upload window.
@@ -128,6 +130,11 @@ public class UploadWindow extends WindowPane implements ActionListener, UploadLi
 		}
 	}
 
+	public void hideOpenButton() {
+		showOpenButton = false;
+		openButton.setVisible(false);
+		openButton.dispose();
+	}
 	/**
 	 * Sets the maximum file size.
 	 * 
@@ -168,7 +175,7 @@ public class UploadWindow extends WindowPane implements ActionListener, UploadLi
 		if (maxFileSize > 0 && upload.getSize() > maxFileSize) {
 			fileContent = null;
 			fileLabel.setText("The chosen file is too large (" + upload.getSize() + " Bytes).");
-			openButton.setEnabled(false);
+			if(showOpenButton)openButton.setEnabled(false);
 			return;
 		}
 		try {
@@ -178,10 +185,16 @@ public class UploadWindow extends WindowPane implements ActionListener, UploadLi
 			String fileName = upload.getFileName();
 			if (fileName.length() > 15) fileName = fileName.substring(0, 15) + "...";
 			fileLabel.setText("Chosen file: " + fileName + " (" + upload.getSize() + " Bytes)");
-			openButton.setEnabled(true);
+			if(showOpenButton)openButton.setEnabled(true);
+			
+			notifyActionListeners(new ActionEvent(this, uploadCompleted));
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
+	}
+	
+	public void notifyActionListeners(ActionEvent e) {
+		actionListener.actionPerformed(e);
 	}
 
 }
