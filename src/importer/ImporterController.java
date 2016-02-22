@@ -62,20 +62,21 @@ public class ImporterController extends Window implements ActionListener {
 		model.refactorUploadedOwl();
 
 		// call owl-verbalizer in CSV mode
-		String csvResponse = verbalizer.call(uploadedOwl, importer.OutputType.CSV);
+		String csvResponse = verbalizer.call(model.getRefactoredOwl(), importer.OutputType.CSV);
 //		System.out.println(csvResponse);
 		// create lexicon
 		model.createLexicon(csvResponse);
-		model.createLexicon(LexiconTest.OUT_CSV);
+		model.printFailedLexicons();
 		// call owl-verbalizer in ACE sentence mode
-		String response = verbalizer.call(model.getRefactoredOwl());
+//		String response = verbalizer.call(model.getRefactoredOwl());
 //		System.out.println(response);
 
 		// filter out the ACE sentences which are according to AceWiki grammar
-		model.handleVerbalizerResponse(response);
+//		model.handleVerbalizerResponse(response);
 
 		// insert valid sentences in the wiki
 		model.insertSentencesInWiki();
+		model.printFailedAceSentences();
 
 	}
 	
