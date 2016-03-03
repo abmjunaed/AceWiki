@@ -37,7 +37,7 @@ public class ImporterController extends Window implements ActionListener {
 
 	public void importButtonClicked() {
 		//testLexiconAdd();
-		//testSentenceAdd();
+		//testTaggedSentenceAdd();
 		// upload owl
 		uploadOwlFile();
 	}
@@ -82,14 +82,27 @@ public class ImporterController extends Window implements ActionListener {
 	
 	// to test the model functions in a quick way
 	private void testSentenceAdd() {
-		String response = "Every men that owns a bike and that does not own a car is liked Mary.";
+//		String response = "Every men that owns a bike and that does not own a car is liked Mary.";
 //		String response = "Every CCCA is a Monument.";
+		String response = "Every CCCA depth 42.0 .";
 		// filter out the ACE sentences which are according to AceWiki grammar
 		model.handleVerbalizerResponse(response);
 
 		// insert valid sentences in the wiki
 		model.insertSentencesInWiki();
 
+	}
+	// to test the model functions in a quick way
+	private void testTaggedSentenceAdd() {
+//		String response = "Every men that owns a bike and that does not own a car is liked Mary.";
+//		String response = "Every CCCA is a Monument.";
+		String response = "Every CCCA depth 42.0 .";
+		// filter out the ACE sentences which are according to AceWiki grammar
+		model.createLexicon(LexiconTest.floatingNumber);
+		
+		// insert valid sentences in the wiki
+		model.insertSentencesInWiki();
+		
 	}
 
 	/**

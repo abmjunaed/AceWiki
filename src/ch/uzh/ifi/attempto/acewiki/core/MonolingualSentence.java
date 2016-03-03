@@ -65,6 +65,16 @@ public abstract class MonolingualSentence extends AbstractSentence {
 	}
 
 	/**
+	 * Returns the sentence were words are tagged according to its type. e.g.
+	 * every n: Noun v: verb...
+	 * 
+	 * @return The sentence text.
+	 */
+	public String getTaggedText() {
+		return getTaggedText("Default");
+	}
+
+	/**
 	 * Returns a list of sentence details to be shown to the user.
 	 * 
 	 * @return A list of sentence details.

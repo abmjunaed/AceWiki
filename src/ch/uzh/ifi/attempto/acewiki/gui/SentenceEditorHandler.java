@@ -53,7 +53,7 @@ public class SentenceEditorHandler implements ActionListener {
 	private int checked = 0;
 	private SentenceSuggestion suggestion;
 	
-	private SentenceEditorHandler(Statement statement, ArticlePage page, boolean edit) {
+	public SentenceEditorHandler(Statement statement, ArticlePage page, boolean edit) {
 		this.page = page;
 		this.wiki = page.getWiki();
 		this.edit = edit;
@@ -76,6 +76,14 @@ public class SentenceEditorHandler implements ActionListener {
 		}
 	}
 	
+	public List<Sentence> getNewSentences() {
+		return newSentences;
+	}
+
+	public void setNewSentences(List<Sentence> newSentences) {
+		this.newSentences = newSentences;
+	}
+
 	/**
 	 * Generates a new predictive editor window for the creation of a new sentence.
 	 * 
@@ -182,7 +190,7 @@ public class SentenceEditorHandler implements ActionListener {
 		}
 	}
 	
-	private void assertSentences() {
+	public void assertSentences() {
 		final Article a = page.getArticle();
 		
 		Task task = new Task() {

@@ -285,6 +285,18 @@
 \vspace{2mm}
 
 }
+{\scriptsize
+\noindent$
+\ruleid
+\scrule{
+  \cat{simple\_sentence\_2}{\featv{qu}{1}\featv{whin}{2}\featv{whout}{3}}
+}{
+  \cat{np}{\featc{case}{nom}\featv{id}{4}\featv{pl}{5}\featv{plquant}{6}\featv{qu}{1}\featc{subj}{--}\featv{whin}{2}\featv{whout}{7}}
+  \cat{vp\_coord\_1}{\featc{pl}{+}\featv{plquant}{6}\featv{qu}{1}\featv{subj}{4}\featv{whin}{7}\featv{whout}{3}}
+}$
+\vspace{2mm}
+
+}
 \subsection*{Verb Phrases}
 
 \noindent Like sentences, verb phrases can be coordinated using "or" ('vp\_coord\_1') and "and"
@@ -386,6 +398,18 @@
 }{
   \cat{verb}{\featc{be}{--}\featv{exist}{2}\featv{pl}{3}\featc{vcat}{tr}\featv{vform}{7}}
   \cat{np}{\featc{case}{acc}\featv{embv}{1}\featv{qu}{4}\featv{rel}{5}\featv{subj}{6}\featc{vcat}{tr}\featv{whin}{8}\featv{whout}{9}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{v}{\featc{be}{--}\featc{copula}{--}\featv{embv}{1}\featv{exist}{2}\featv{pl}{3}\featv{qu}{4}\featv{rel}{5}\featv{subj}{6}\featv{vform}{7}\featv{whin}{8}\featv{whout}{9}}
+}{
+  \cat{verb}{\featc{be}{--}\featv{exist}{2}\featv{pl}{3}\featc{vcat}{tr}\featv{vform}{7}}
+  \spreterm{number}
 }$
 \vspace{2mm}
 

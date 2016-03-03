@@ -64,7 +64,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// text=>complete_sentence, text
+		// text=>complete_sentence,text
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -85,7 +85,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* A complete sentence is represented by the category 'complete_sentence' and is either
 		a declarative sentence that ends with a full stop or a question ending with a question mark: */
 		
-		// complete_sentence~> //, sentence, ['.']
+		// complete_sentence~> (//),sentence,['.']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -105,7 +105,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// complete_sentence~> //, simple_sentence_2(qu:plus, whin:minus, whout:plus), [?]
+		// complete_sentence~> (//),simple_sentence_2(qu:plus,whin:minus,whout:plus),[?]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -144,7 +144,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// sentence~> //, ['for every'], nc(subj:minus, qu:minus), sentence_coord_1
+		// sentence~> (//),['for every'],nc(subj:minus,qu:minus),sentence_coord_1
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -170,7 +170,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// sentence~> //, [if], sentence_coord_1, [then], sentence_coord_1
+		// sentence~> (//),[if],sentence_coord_1,[then],sentence_coord_1
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -213,7 +213,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// sentence_coord_1~> //, sentence_coord_2, [or], sentence_coord_1
+		// sentence_coord_1~> (//),sentence_coord_2,[or],sentence_coord_1
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -251,7 +251,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// sentence_coord_2=>simple_sentence_1, [and], sentence_coord_2
+		// sentence_coord_2=>simple_sentence_1,[and],sentence_coord_2
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -274,7 +274,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* Uncoordinated sentences are represented in two levels by 'simple_sentence_1' and
 		'simple_sentence_2': */
 		
-		// simple_sentence_1~> //, ['it is false that'], simple_sentence_2(qu:minus)
+		// simple_sentence_1~> (//),['it is false that'],simple_sentence_2(qu:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -295,7 +295,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// simple_sentence_1=>['there is'], np(subj:minus, exist:plus, def:minus, pl:minus, case:nom, qu:minus)
+		// simple_sentence_1=>['there is'],np(subj:minus,exist:plus,def:minus,pl:minus,case:nom,qu:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -317,7 +317,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// simple_sentence_1=>['there is'], np(subj:minus, exist:plus, def:minus, pl:minus, case:nom, qu:minus), ['such that'], simple_sentence_1
+		// simple_sentence_1=>['there is'],np(subj:minus,exist:plus,def:minus,pl:minus,case:nom,qu:minus),['such that'],simple_sentence_1
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -345,7 +345,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// simple_sentence_1=>['there are'], np(subj:minus, exist:plus, def:minus, pl:plus, case:nom, qu:minus)
+		// simple_sentence_1=>['there are'],np(subj:minus,exist:plus,def:minus,pl:plus,case:nom,qu:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -382,7 +382,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// simple_sentence_2(qu:A, whin:B, whout:C)~>np(id:D, subj:minus, pl:E, plquant:F, case:nom, qu:A, whin:B, whout:G), vp_coord_1(subj:D, pl:E, plquant:F, qu:A, whin:G, whout:C)
+		// simple_sentence_2(qu:A,whin:B,whout:C)~>np(id:D,subj:minus,pl:E,plquant:F,case:nom,qu:A,whin:B,whout:G),vp_coord_1(subj:D,pl:E,plquant:F,qu:A,whin:G,whout:C)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -417,13 +417,48 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
+		// simple_sentence_2(qu:A,whin:B,whout:C)~>np(id:D,subj:minus,pl:E,plquant:F,case:nom,qu:A,whin:B,whout:G),vp_coord_1(subj:D,pl:plus,plquant:F,qu:A,whin:G,whout:C)
+		l.clear();
+		featureHash.clear();
+		ann = new Annotation();
+		nonterm = new Nonterminal("simple_sentence_2");
+		fm = new FeatureMap();
+		setFeature(fm, "qu", 0, featureHash);
+		setFeature(fm, "whin", 1, featureHash);
+		setFeature(fm, "whout", 2, featureHash);
+		nonterm.setFeatureMap(fm);
+		l.add(nonterm);
+		nonterm = new Nonterminal("np");
+		fm = new FeatureMap();
+		setFeature(fm, "id", 3, featureHash);
+		fm.setFeature("subj", new StringRef("minus"));
+		setFeature(fm, "pl", 4, featureHash);
+		setFeature(fm, "plquant", 5, featureHash);
+		fm.setFeature("case", new StringRef("nom"));
+		setFeature(fm, "qu", 0, featureHash);
+		setFeature(fm, "whin", 1, featureHash);
+		setFeature(fm, "whout", 6, featureHash);
+		nonterm.setFeatureMap(fm);
+		l.add(nonterm);
+		nonterm = new Nonterminal("vp_coord_1");
+		fm = new FeatureMap();
+		setFeature(fm, "subj", 3, featureHash);
+		fm.setFeature("pl", new StringRef("plus"));
+		setFeature(fm, "plquant", 5, featureHash);
+		setFeature(fm, "qu", 0, featureHash);
+		setFeature(fm, "whin", 6, featureHash);
+		setFeature(fm, "whout", 2, featureHash);
+		nonterm.setFeatureMap(fm);
+		l.add(nonterm);
+		addGrammarRule(new GrammarRule(ann, l, true));
+		
 		
 		/* --- Verb Phrases --- */
 		
 		/* Like sentences, verb phrases can be coordinated using "or" ('vp_coord_1') and "and"
 		('vp_coord_2'): */
 		
-		// vp_coord_1(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:F)=>vp_coord_2(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:F)
+		// vp_coord_1(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:F)=>vp_coord_2(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -449,7 +484,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// vp_coord_1(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:F)~> //, vp_coord_2(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:G), [or], vp_coord_1(subj:A, pl:B, plquant:C, qu:D, whin:G, whout:F)
+		// vp_coord_1(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:F)~> (//),vp_coord_2(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:G),[or],vp_coord_1(subj:A,pl:B,plquant:C,qu:D,whin:G,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -491,7 +526,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// vp_coord_2(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:F)=>vp(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:F)
+		// vp_coord_2(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:F)=>vp(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -517,7 +552,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// vp_coord_2(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:F)=>vp(subj:A, pl:B, plquant:C, qu:D, whin:E, whout:G), [and], vp_coord_2(subj:A, pl:B, plquant:C, qu:D, whin:G, whout:F)
+		// vp_coord_2(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:F)=>vp(subj:A,pl:B,plquant:C,qu:D,whin:E,whout:G),[and],vp_coord_2(subj:A,pl:B,plquant:C,qu:D,whin:G,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -557,7 +592,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		
 		/* Uncoordinated verb phrases represented by 'vp' can use an auxiliary verb: */
 		
-		// vp(subj:A, exist:B, rel:C, pl:D, plquant:E, qu:F, whin:G, whout:H)~>aux(be:I, exist:B, pl:D), v(subj:A, be:I, exist:B, pl:D, plquant:E, rel:C, vform:inf, qu:F, whin:G, whout:H)
+		// vp(subj:A,exist:B,rel:C,pl:D,plquant:E,qu:F,whin:G,whout:H)~>aux(be:I,exist:B,pl:D),v(subj:A,be:I,exist:B,pl:D,plquant:E,rel:C,vform:inf,qu:F,whin:G,whout:H)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -596,7 +631,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// vp(subj:A, exist:plus, rel:B, pl:C, qu:D, whin:E, whout:F)~>v(subj:A, be:minus, exist:plus, pl:C, rel:B, vform:fin, qu:D, whin:E, whout:F)
+		// vp(subj:A,exist:plus,rel:B,pl:C,qu:D,whin:E,whout:F)~>v(subj:A,be:minus,exist:plus,pl:C,rel:B,vform:fin,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -629,7 +664,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* The category 'v' represents the main verb or - if "be" is used as a copula verb - the
 		complementing noun phrase or adjective complement: */
 		
-		// v(be:minus, exist:A, pl:B, vform:C, copula:minus, whin:D, whout:D)=>verb(vcat:itr, be:minus, pl:B, exist:A, vform:C)
+		// v(be:minus,exist:A,pl:B,vform:C,copula:minus,whin:D,whout:D)=>verb(vcat:itr,be:minus,pl:B,exist:A,vform:C)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -655,7 +690,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// v(subj:A, be:minus, exist:B, rel:C, pl:D, vform:E, embv:F, copula:minus, qu:G, whin:H, whout:I)=>verb(vcat:tr, be:minus, pl:D, exist:B, vform:E), np(subj:A, rel:C, vcat:tr, embv:F, case:acc, qu:G, whin:H, whout:I)
+		// v(subj:A,be:minus,exist:B,rel:C,pl:D,vform:E,embv:F,copula:minus,qu:G,whin:H,whout:I)=>verb(vcat:tr,be:minus,pl:D,exist:B,vform:E),np(subj:A,rel:C,vcat:tr,embv:F,case:acc,qu:G,whin:H,whout:I)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -697,7 +732,41 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// v(subj:A, be:plus, rel:B, embv:C, copula:minus, qu:D, whin:E, whout:F)=>verb(vcat:tr, be:plus), np(subj:A, rel:B, copula:minus, embv:C, case:acc, qu:D, whin:E, whout:F)
+		// v(subj:A,be:minus,exist:B,rel:C,pl:D,vform:E,embv:F,copula:minus,qu:G,whin:H,whout:I)=>verb(vcat:tr,be:minus,pl:D,exist:B,vform:E),$number
+		l.clear();
+		featureHash.clear();
+		ann = new Annotation();
+		nonterm = new Nonterminal("v");
+		fm = new FeatureMap();
+		setFeature(fm, "subj", 0, featureHash);
+		fm.setFeature("be", new StringRef("minus"));
+		setFeature(fm, "exist", 1, featureHash);
+		setFeature(fm, "rel", 2, featureHash);
+		setFeature(fm, "pl", 3, featureHash);
+		setFeature(fm, "vform", 4, featureHash);
+		setFeature(fm, "embv", 5, featureHash);
+		fm.setFeature("copula", new StringRef("minus"));
+		setFeature(fm, "qu", 6, featureHash);
+		setFeature(fm, "whin", 7, featureHash);
+		setFeature(fm, "whout", 8, featureHash);
+		nonterm.setFeatureMap(fm);
+		l.add(nonterm);
+		nonterm = new Nonterminal("verb");
+		fm = new FeatureMap();
+		fm.setFeature("vcat", new StringRef("tr"));
+		fm.setFeature("be", new StringRef("minus"));
+		setFeature(fm, "pl", 3, featureHash);
+		setFeature(fm, "exist", 1, featureHash);
+		setFeature(fm, "vform", 4, featureHash);
+		nonterm.setFeatureMap(fm);
+		l.add(nonterm);
+		preterm = new Preterminal("number");
+		fm = new FeatureMap();
+		preterm.setFeatureMap(fm);
+		l.add(preterm);
+		addGrammarRule(new GrammarRule(ann, l, false));
+		
+		// v(subj:A,be:plus,rel:B,embv:C,copula:minus,qu:D,whin:E,whout:F)=>verb(vcat:tr,be:plus),np(subj:A,rel:B,copula:minus,embv:C,case:acc,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -733,7 +802,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// v(subj:A, be:plus, rel:B, embv:C, copula:plus, qu:D, whin:E, whout:F)=>np(subj:A, of:plus, rel:B, pl:minus, copula:plus, embv:C, case:acc, qu:D, whin:E, whout:F)
+		// v(subj:A,be:plus,rel:B,embv:C,copula:plus,qu:D,whin:E,whout:F)=>np(subj:A,of:plus,rel:B,pl:minus,copula:plus,embv:C,case:acc,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -765,7 +834,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// v(subj:A, be:plus, rel:B, plquant:minus, embv:C, copula:plus, qu:D, whin:E, whout:F)=>np(subj:A, of:minus, rel:B, pl:minus, copula:plus, embv:C, case:acc, qu:D, whin:E, whout:F)
+		// v(subj:A,be:plus,rel:B,plquant:minus,embv:C,copula:plus,qu:D,whin:E,whout:F)=>np(subj:A,of:minus,rel:B,pl:minus,copula:plus,embv:C,case:acc,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -798,7 +867,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// v(subj:A, be:plus, rel:B, embv:C, copula:plus, qu:D, whin:E, whout:F)=> $tradj, np(subj:A, rel:B, copula:minus, embv:C, case:acc, qu:D, whin:E, whout:F)
+		// v(subj:A,be:plus,rel:B,embv:C,copula:plus,qu:D,whin:E,whout:F)=> $tradj,np(subj:A,rel:B,copula:minus,embv:C,case:acc,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -838,7 +907,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* Noun phrases are represented by 'np' and can consist of proper names, variables,
 		pronouns, and different noun constructs: */
 		
-		// np(id:A, exist:plus, rel:B, of:minus, def:plus, pl:minus, embv:C, qu:D, whin:E, whout:F)=> $propername(human:G, gender:H, text:A), >>(id:A, human:G, gender:H, type:prop, hasvar:minus), relcl(subj:A, rel:B, embv:C, human:G, qu:D, whin:E, whout:F)
+		// np(id:A,exist:plus,rel:B,of:minus,def:plus,pl:minus,embv:C,qu:D,whin:E,whout:F)=> $propername(human:G,gender:H,text:A),>>(id:A,human:G,gender:H,type:prop,hasvar:minus),relcl(subj:A,rel:B,embv:C,human:G,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -885,7 +954,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, def:plus, pl:minus, whin:B, whout:B)=> #A, newvar(var:C), >(id:A, type:var, hasvar:plus, var:C)
+		// np(id:A,exist:plus,of:minus,def:plus,pl:minus,whin:B,whout:B)=> #A,newvar(var:C),>(id:A,type:var,hasvar:plus,var:C)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -920,7 +989,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, def:plus, pl:minus, whin:B, whout:B)=> $defnoun(noun:C), $reference(text:D), <(id:A, type:noun, hasvar:plus, noun:C, var:D, human:E, gender:F), >(id:A, human:E, gender:F, type:ref, hasvar:minus)
+		// np(id:A,exist:plus,of:minus,def:plus,pl:minus,whin:B,whout:B)=> $defnoun(noun:C),$reference(text:D),<(id:A,type:noun,hasvar:plus,noun:C,var:D,human:E,gender:F),>(id:A,human:E,gender:F,type:ref,hasvar:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -967,7 +1036,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, def:plus, pl:minus, whin:B, whout:B)=> $defnoun(noun:C), <(id:A, type:noun, noun:C, human:D, gender:E), >(id:A, human:D, gender:E, type:ref, hasvar:minus)
+		// np(id:A,exist:plus,of:minus,def:plus,pl:minus,whin:B,whout:B)=> $defnoun(noun:C),<(id:A,type:noun,noun:C,human:D,gender:E),>(id:A,human:D,gender:E,type:ref,hasvar:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1007,7 +1076,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, def:plus, pl:minus, whin:B, whout:B)=> $reference(text:C), <(id:A, hasvar:plus, var:C, human:D, gender:E), >(id:A, human:D, gender:E, type:ref, hasvar:minus)
+		// np(id:A,exist:plus,of:minus,def:plus,pl:minus,whin:B,whout:B)=> $reference(text:C),<(id:A,hasvar:plus,var:C,human:D,gender:E),>(id:A,human:D,gender:E,type:ref,hasvar:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1047,7 +1116,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, subj:B, exist:C, rel:D, of:E, pl:minus, embv:F, qu:G, whin:H, whout:I)=>quant(exist:C, qu:G), nc(id:A, subj:B, rel:D, of:E, embv:F, qu:G, whin:H, whout:I)
+		// np(id:A,subj:B,exist:C,rel:D,of:E,pl:minus,embv:F,qu:G,whin:H,whout:I)=>quant(exist:C,qu:G),nc(id:A,subj:B,rel:D,of:E,embv:F,qu:G,whin:H,whout:I)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1085,7 +1154,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:B, rel:C, of:minus, pl:minus, embv:D, qu:E, whin:F, whout:G)=> #A, ipron(exist:B, human:H, qu:E), opt_newvar(hasvar:I, var:J), >(id:A, human:H, type:ipron, hasvar:I, var:J), relcl(subj:A, rel:C, embv:D, human:H, qu:E, whin:F, whout:G)
+		// np(id:A,exist:B,rel:C,of:minus,pl:minus,embv:D,qu:E,whin:F,whout:G)=> #A,ipron(exist:B,human:H,qu:E),opt_newvar(hasvar:I,var:J),>(id:A,human:H,type:ipron,hasvar:I,var:J),relcl(subj:A,rel:C,embv:D,human:H,qu:E,whin:F,whout:G)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1142,7 +1211,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, pl:plus, plquant:plus, copula:minus, whin:B, whout:B)=>num_quant, $number, #A, $nounpl
+		// np(id:A,exist:plus,of:minus,pl:plus,plquant:plus,copula:minus,whin:B,whout:B)=>num_quant,$number,#A,$nounpl
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1177,7 +1246,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(preterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, pl:minus, copula:minus, whin:B, whout:B)=>num_quant, ['1'], #A, $noun(human:C, gender:D, text:E), >(id:A, human:C, gender:D, type:noun, hasvar:minus, noun:E)
+		// np(id:A,exist:plus,of:minus,pl:minus,copula:minus,whin:B,whout:B)=>num_quant,['1'],#A,$noun(human:C,gender:D,text:E),>(id:A,human:C,gender:D,type:noun,hasvar:minus,noun:E)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1222,7 +1291,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, pl:minus, qu:plus, whin:minus, whout:plus)=> #A, [what], >(id:A, human:minus, type:wh, hasvar:minus)
+		// np(id:A,exist:plus,of:minus,pl:minus,qu:plus,whin:minus,whout:plus)=> #A,[what],>(id:A,human:minus,type:wh,hasvar:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1254,7 +1323,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, pl:minus, qu:plus, whin:minus, whout:plus)=> #A, [who], >(id:A, human:plus, type:wh, hasvar:minus)
+		// np(id:A,exist:plus,of:minus,pl:minus,qu:plus,whin:minus,whout:plus)=> #A,[who],>(id:A,human:plus,type:wh,hasvar:minus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1286,7 +1355,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, subj:B, exist:plus, rel:C, of:D, embv:E, pl:minus, qu:plus, whin:minus, whout:plus)=>[which], nc(id:A, subj:B, rel:C, of:D, embv:E, qu:plus, whin:plus, whout:plus)
+		// np(id:A,subj:B,exist:plus,rel:C,of:D,embv:E,pl:minus,qu:plus,whin:minus,whout:plus)=>[which],nc(id:A,subj:B,rel:C,of:D,embv:E,qu:plus,whin:plus,whout:plus)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1320,7 +1389,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// np(id:A, exist:plus, of:minus, pl:plus, plquant:minus, qu:plus, whin:minus, whout:plus)=>[which], #A, $nounpl
+		// np(id:A,exist:plus,of:minus,pl:plus,plquant:minus,qu:plus,whin:minus,whout:plus)=>[which],#A,$nounpl
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1352,7 +1421,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* The category 'nc' represents nouns optionally followed by variables, relative clauses,
 		and of-constructs: */
 		
-		// nc(id:A, rel:B, of:minus, embv:C, qu:D, whin:E, whout:F)=>n(id:A, human:G, gender:H, text:I), opt_newvar(hasvar:J, var:K), >(id:A, human:G, gender:H, type:noun, hasvar:J, noun:I, var:K), relcl(subj:A, rel:B, embv:C, human:G, qu:D, whin:E, whout:F)
+		// nc(id:A,rel:B,of:minus,embv:C,qu:D,whin:E,whout:F)=>n(id:A,human:G,gender:H,text:I),opt_newvar(hasvar:J,var:K),>(id:A,human:G,gender:H,type:noun,hasvar:J,noun:I,var:K),relcl(subj:A,rel:B,embv:C,human:G,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1405,7 +1474,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// nc(subj:A, rel:B, of:plus, embv:C, qu:D, whin:E, whout:F)~> $nounof, np(subj:A, rel:B, embv:C, case:acc, qu:D, whin:E, whout:F)
+		// nc(subj:A,rel:B,of:plus,embv:C,qu:D,whin:E,whout:F)~> $nounof,np(subj:A,rel:B,embv:C,case:acc,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1439,7 +1508,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		
 		/* The category 'n' stands for nouns: */
 		
-		// n(id:A, human:B, gender:C, text:D)=> #A, $noun(human:B, gender:C, text:D)
+		// n(id:A,human:B,gender:C,text:D)=> #A,$noun(human:B,gender:C,text:D)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1479,7 +1548,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// opt_newvar(hasvar:plus, var:A)=>newvar(var:A)
+		// opt_newvar(hasvar:plus,var:A)=>newvar(var:A)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1496,7 +1565,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// newvar(var:A)=> $variable(text:A), /<(hasvar:plus, var:A)
+		// newvar(var:A)=> $variable(text:A),/<(hasvar:plus,var:A)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1524,7 +1593,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* Relative clauses are represented by 'relcl'. They start with a relative pronoun and
 		are always optional: */
 		
-		// relcl(whin:A, whout:A)=>[]
+		// relcl(whin:A,whout:A)=>[]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1536,7 +1605,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// relcl(subj:A, rel:plus, embv:plus, human:B, qu:C, whin:D, whout:E)=>relpron(human:B, relpron:F), relcl1(subj:A, human:B, relpron:F, qu:C, whin:D, whout:E)
+		// relcl(subj:A,rel:plus,embv:plus,human:B,qu:C,whin:D,whout:E)=>relpron(human:B,relpron:F),relcl1(subj:A,human:B,relpron:F,qu:C,whin:D,whout:E)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1572,7 +1641,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* Like sentences and verb phrases, relative clauses can be coordinated by "or"
 		('relcl1') and "and" ('relcl2'): */
 		
-		// relcl1(subj:A, human:B, relpron:C, qu:D, whin:E, whout:F)~> //, relcl2(subj:A, human:B, rel:minus, relpron:C, qu:D, whin:E, whout:G), or_relpron(human:B, relpron:C), relcl1(subj:A, human:B, relpron:C, qu:D, whin:G, whout:F)
+		// relcl1(subj:A,human:B,relpron:C,qu:D,whin:E,whout:F)~> (//),relcl2(subj:A,human:B,rel:minus,relpron:C,qu:D,whin:E,whout:G),or_relpron(human:B,relpron:C),relcl1(subj:A,human:B,relpron:C,qu:D,whin:G,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1619,7 +1688,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// relcl1(subj:A, human:B, relpron:C, qu:D, whin:E, whout:F)=>relcl2(subj:A, human:B, relpron:C, qu:D, whin:E, whout:F)
+		// relcl1(subj:A,human:B,relpron:C,qu:D,whin:E,whout:F)=>relcl2(subj:A,human:B,relpron:C,qu:D,whin:E,whout:F)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1645,7 +1714,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// relcl2(subj:A, rel:B, relpron:C, human:D, qu:E, whin:F, whout:G)=>vp(subj:A, rel:minus, pl:minus, qu:E, whin:F, whout:H), and_relpron(human:D, relpron:C), relcl2(subj:A, rel:B, relpron:C, human:D, qu:E, whin:H, whout:G)
+		// relcl2(subj:A,rel:B,relpron:C,human:D,qu:E,whin:F,whout:G)=>vp(subj:A,rel:minus,pl:minus,qu:E,whin:F,whout:H),and_relpron(human:D,relpron:C),relcl2(subj:A,rel:B,relpron:C,human:D,qu:E,whin:H,whout:G)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1689,7 +1758,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// relcl2(subj:A, rel:B, qu:C, whin:D, whout:E)=>vp(subj:A, rel:B, pl:minus, qu:C, whin:D, whout:E)
+		// relcl2(subj:A,rel:B,qu:C,whin:D,whout:E)=>vp(subj:A,rel:B,pl:minus,qu:C,whin:D,whout:E)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1714,7 +1783,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// relcl2(subj:A, qu:B, whin:C, whout:D)~>np(subj:A, rel:minus, copula:minus, pl:E, case:nom, refl:minus, qu:B, whin:C, whout:D), aux(be:minus, exist:F, pl:E), verb(vcat:tr, be:minus, exist:F, pl:E, vform:inf)
+		// relcl2(subj:A,qu:B,whin:C,whout:D)~>np(subj:A,rel:minus,copula:minus,pl:E,case:nom,refl:minus,qu:B,whin:C,whout:D),aux(be:minus,exist:F,pl:E),verb(vcat:tr,be:minus,exist:F,pl:E,vform:inf)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1757,7 +1826,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		addGrammarRule(new GrammarRule(ann, l, true));
 		
-		// relcl2(subj:A, qu:B, whin:C, whout:D)~>np(subj:A, rel:minus, copula:minus, pl:E, case:nom, refl:minus, qu:B, whin:C, whout:D), verb(vcat:tr, be:minus, exist:plus, pl:E, vform:fin)
+		// relcl2(subj:A,qu:B,whin:C,whout:D)~>np(subj:A,rel:minus,copula:minus,pl:E,case:nom,refl:minus,qu:B,whin:C,whout:D),verb(vcat:tr,be:minus,exist:plus,pl:E,vform:fin)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1809,7 +1878,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// relpron(human:plus, relpron:who)=>[who]
+		// relpron(human:plus,relpron:who)=>[who]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1823,7 +1892,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// relpron(human:minus, relpron:which)=>[which]
+		// relpron(human:minus,relpron:which)=>[which]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1840,7 +1909,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		/* The categories 'or_relpron' and 'and_relpron' define shortcuts - like "or that" as
 		one token - for better usability inside of the predictive editor: */
 		
-		// or_relpron(human:A, relpron:B)=>[or], relpron(human:A, relpron:B)
+		// or_relpron(human:A,relpron:B)=>[or],relpron(human:A,relpron:B)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1873,7 +1942,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// or_relpron(human:plus, relpron:who)=>['or who']
+		// or_relpron(human:plus,relpron:who)=>['or who']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1887,7 +1956,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// or_relpron(human:minus, relpron:which)=>['or which']
+		// or_relpron(human:minus,relpron:which)=>['or which']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1901,7 +1970,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// and_relpron(human:A, relpron:B)=>[and], relpron(human:A, relpron:B)
+		// and_relpron(human:A,relpron:B)=>[and],relpron(human:A,relpron:B)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1934,7 +2003,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// and_relpron(human:plus, relpron:who)=>['and who']
+		// and_relpron(human:plus,relpron:who)=>['and who']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1948,7 +2017,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// and_relpron(human:minus, relpron:which)=>['and which']
+		// and_relpron(human:minus,relpron:which)=>['and which']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1967,7 +2036,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		
 		/* The category 'verb' represents main verbs: */
 		
-		// verb(be:minus, vcat:tr, pl:minus, vform:fin)=> $verbsg
+		// verb(be:minus,vcat:tr,pl:minus,vform:fin)=> $verbsg
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -1985,7 +2054,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(preterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// verb(be:minus, vcat:tr, pl:plus, vform:fin)=> $verbinf
+		// verb(be:minus,vcat:tr,pl:plus,vform:fin)=> $verbinf
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2003,7 +2072,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(preterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// verb(be:minus, vcat:tr, vform:inf)=> $verbinf
+		// verb(be:minus,vcat:tr,vform:inf)=> $verbinf
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2020,7 +2089,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(preterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// verb(be:plus, vcat:tr)=> $pverb
+		// verb(be:plus,vcat:tr)=> $pverb
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2038,7 +2107,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		
 		/* Auxiliary verbs are represented by 'aux', which includes negation markers: */
 		
-		// aux(be:plus, exist:plus, pl:minus)=>[is]
+		// aux(be:plus,exist:plus,pl:minus)=>[is]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2053,7 +2122,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:plus, exist:minus, pl:minus)=> //, ['is not']
+		// aux(be:plus,exist:minus,pl:minus)=> (//),['is not']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2072,7 +2141,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:plus, exist:minus, pl:minus)=> //, [is, not]
+		// aux(be:plus,exist:minus,pl:minus)=> (//),[is,not]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2093,7 +2162,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:plus, exist:plus, pl:plus)=>[are]
+		// aux(be:plus,exist:plus,pl:plus)=>[are]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2108,7 +2177,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:plus, exist:minus, pl:plus)=> //, ['are not']
+		// aux(be:plus,exist:minus,pl:plus)=> (//),['are not']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2127,7 +2196,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:plus, exist:minus, pl:plus)=> //, [are, not]
+		// aux(be:plus,exist:minus,pl:plus)=> (//),[are,not]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2148,7 +2217,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:minus, exist:minus, pl:minus)=> //, ['does not']
+		// aux(be:minus,exist:minus,pl:minus)=> (//),['does not']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2167,7 +2236,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// aux(be:minus, exist:minus, pl:plus)=> //, ['do not']
+		// aux(be:minus,exist:minus,pl:plus)=> (//),['do not']
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2217,7 +2286,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// quant(exist:minus, qu:minus)=> //, [every]
+		// quant(exist:minus,qu:minus)=> (//),[every]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2235,7 +2304,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// quant(exist:minus)=> //, [no]
+		// quant(exist:minus)=> (//),[no]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2319,7 +2388,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		
 		/* Indefinite pronouns are represented by 'ipron': */
 		
-		// ipron(exist:plus, human:minus)=>[something]
+		// ipron(exist:plus,human:minus)=>[something]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2333,7 +2402,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// ipron(exist:plus, human:plus)=>[somebody]
+		// ipron(exist:plus,human:plus)=>[somebody]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2347,7 +2416,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// ipron(exist:minus, human:minus, qu:minus)=> //, [everything]
+		// ipron(exist:minus,human:minus,qu:minus)=> (//),[everything]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2366,7 +2435,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// ipron(exist:minus, human:plus, qu:minus)=> //, [everybody]
+		// ipron(exist:minus,human:plus,qu:minus)=> (//),[everybody]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2385,7 +2454,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// ipron(exist:minus, human:minus)=> //, [nothing]
+		// ipron(exist:minus,human:minus)=> (//),[nothing]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -2403,7 +2472,7 @@ public class ACEGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(term);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// ipron(exist:minus, human:plus)=> //, [nobody]
+		// ipron(exist:minus,human:plus)=> (//),[nobody]
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();

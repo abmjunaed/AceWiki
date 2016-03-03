@@ -118,6 +118,14 @@ simple_sentence_2(qu:Qu, whin:WhIn, whout:WhOut) ~>
 	np(id:ID, subj:minus, pl:PL, plquant:PLQ, case:nom, qu:Qu, whin:WhIn, whout:WhTemp),
 	vp_coord_1(subj:ID, pl:PL, plquant:PLQ, qu:Qu, whin:WhTemp, whout:WhOut).
 
+%pl:PL in np, here PL is variable. So it can be plus or minus.
+%pl:plus inside vp_coord_1 means plural. So for plural noun we have plural verb and also for
+%singular noun we have plural verb. 
+%we need singular noun and plural verb combination because owl-verbalizer verbalizes
+%some owl in this way.
+simple_sentence_2(qu:Qu, whin:WhIn, whout:WhOut) ~>
+	np(id:ID, subj:minus, pl:PL, plquant:PLQ, case:nom, qu:Qu, whin:WhIn, whout:WhTemp),
+	vp_coord_1(subj:ID, pl:plus, plquant:PLQ, qu:Qu, whin:WhTemp, whout:WhOut).
 
 section:'Verb Phrases'.
 
@@ -159,6 +167,11 @@ v(be:minus, exist:E, pl:PL, vform:VF, copula:minus, whin:Wh, whout:Wh) =>
 v(subj:Subj, be:minus, exist:E, rel:R, pl:PL, vform:VF, embv:EmbV, copula:minus, qu:Qu, whin:WhIn, whout:WhOut) =>
 	verb(vcat:tr, be:minus, pl:PL, exist:E, vform:VF),
 	np(subj:Subj, rel:R, vcat:tr, embv:EmbV, case:acc, qu:Qu, whin:WhIn, whout:WhOut).
+
+%We need number after verb because, "Every chair depth 39.0." Here we have number after verb "depth".
+v(subj:Subj, be:minus, exist:E, rel:R, pl:PL, vform:VF, embv:EmbV, copula:minus, qu:Qu, whin:WhIn, whout:WhOut) =>
+	verb(vcat:tr, be:minus, pl:PL, exist:E, vform:VF),
+	$number.
 
 v(subj:Subj, be:plus, rel:R, embv:EmbV, copula:minus, qu:Qu, whin:WhIn, whout:WhOut) =>
 	verb(vcat:tr, be:plus),

@@ -146,7 +146,10 @@ public abstract class ACESentence extends MonolingualSentence implements OWLSent
 		// This is legacy code to support old acewikidata files:
 		String t = "&" + serialized + "&";
 		t = t.replaceAll(" ", "&");
-		t = t.replaceAll("\\.", "&.&");
+//		t = t.replaceAll("\\.", "&.&");
+		//work with last dot, becasue floating point number also has dot
+		int lastDotPos = t.lastIndexOf('.');
+		t = t.substring(0, lastDotPos) + "&.&";
 		t = t.replaceAll("\\?", "&?&");
 		t = t.replaceAll("&of&", " of&");
 		t = t.replaceAll("&by&", " by&");
@@ -269,7 +272,8 @@ public abstract class ACESentence extends MonolingualSentence implements OWLSent
 				}
 			}
 			parserResult = ape.getMultiOutput(
-					getText(),
+//					getText(),
+					getTaggedText(),
 					lexicon,
 					PARAPHRASE1,
 					SYNTAX,

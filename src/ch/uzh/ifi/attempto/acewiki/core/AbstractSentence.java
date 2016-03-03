@@ -16,6 +16,8 @@ package ch.uzh.ifi.attempto.acewiki.core;
 
 import java.util.List;
 
+import ch.uzh.ifi.attempto.acewiki.aceowl.ACEOWLOntoElement;
+import ch.uzh.ifi.attempto.acewiki.aceowl.NounConcept;
 import ch.uzh.ifi.attempto.base.TextElement;
 import ch.uzh.ifi.attempto.base.TextOperator;
 
@@ -62,6 +64,45 @@ public abstract class AbstractSentence extends AbstractStatement implements Sent
 				t += glue + ((PrettyTextElement) te).getUnderscoredText();
 			} else {
 				t += glue + te.getText();
+			}
+			prev = te;
+		}
+		return t;
+	}
+	
+	/**
+	 * We create lexicon according to the csv output of owl-verbalizer. So we
+	 * already know type of each word. So while sending a sentence to APE, tag
+	 * all the words so that APE can parse properly.
+	 * Returns the sentence were words are tagged according to its type. e.g.
+	 * every n: Noun v: verb...
+	 * @param language
+	 * @return tagged sentence
+	 */
+	public String getTaggedText(String language) {
+		String t = "";
+		TextElement prev = null;
+		TextOperator textOperator = getTextOperator(language);
+		for (TextElement te : getTextElements(language)) {
+			String glue = "";
+			if (prev != null) {
+				glue = textOperator.getGlue(prev, te);
+				t += glue;// most of the cases, glue is space
+			}
+			if (te instanceof OntologyTextElement) {
+				OntologyElement oe = ((OntologyTextElement) te).getOntologyElement();
+				if (oe instanceof ACEOWLOntoElement) {
+					if (oe.getInternalType().equals("noun")) {
+						t += "n:";
+					} else if (oe.getInternalType().equals("trverb")) {
+						t += "v:";
+					}
+				}
+			}
+			if (te instanceof PrettyTextElement) {
+				t += ((PrettyTextElement) te).getUnderscoredText();
+			} else {
+				t += te.getText();
 			}
 			prev = te;
 		}
